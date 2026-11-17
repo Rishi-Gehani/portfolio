@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rishi Gehani – Cyber & Cloud Security</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef1ef; --surface:#e4e9e6; --ink:#233029; --muted:#66726c;
+  --line:#d3dad6; --accent:#5b7889; --sage:#8fa497;
+  --serif:'Spectral',Georgia,'Times New Roman',serif;
+  --sans:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#171d1a; --surface:#1f2723; --ink:#e3e9e5; --muted:#93a099;
+    --line:#2d3732; --accent:#8fb0c2; --sage:#6f8578;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#171d1a; --surface:#1f2723; --ink:#e3e9e5; --muted:#93a099;
+  --line:#2d3732; --accent:#8fb0c2; --sage:#6f8578;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 24px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-color:var(--sage);text-underline-offset:4px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;font-size:.92rem;color:var(--muted)}
+nav .mark{font-family:var(--serif);font-size:1.15rem;color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none}
+
+/* hero */
+.hero{padding:5rem 0 4.5rem;display:grid;grid-template-columns:1.25fr 1fr;gap:3.5rem;align-items:center}
+h1{font-family:var(--serif);font-weight:300;font-size:clamp(3rem,8vw,5.6rem);line-height:1;letter-spacing:-.025em;margin:0 0 1.5rem}
+.hero p.lead{font-size:1.12rem;color:var(--muted);max-width:30rem;margin:0 0 2rem}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.65rem 1.25rem;border:1px solid var(--ink);border-radius:999px;text-decoration:none;font-weight:500;font-size:.95rem;transition:background .2s,color .2s}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.quiet{border-color:var(--line);color:var(--muted)}
+
+/* the one memorable thing: a quiet terminal */
+.term{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:.84rem;line-height:1.9;color:var(--muted);overflow-x:auto}
+.term .dots{display:flex;gap:6px;margin-bottom:1rem}
+.term .dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.term .p{color:var(--sage)}
+.term b{color:var(--ink);font-weight:500}
+.term .ok{color:var(--accent)}
+.cursor{display:inline-block;width:.5ch;height:1em;background:var(--accent);vertical-align:-.15em;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* sections */
+section{display:grid;grid-template-columns:12rem 1fr;gap:2rem;padding:3.25rem 0;border-top:1px solid var(--line)}
+h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin:0;letter-spacing:-.01em}
+h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin:0 0 .15rem;letter-spacing:-.005em}
+.meta{color:var(--muted);font-size:.9rem;margin:0 0 .9rem}
+p{margin:0 0 1rem;max-width:42rem}
+
+.item{padding-bottom:2.25rem;margin-bottom:2.25rem;border-bottom:1px dashed var(--line)}
+.item:last-child{border:0;margin:0;padding:0}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:.9rem 0 0}
+.tags li{font-size:.8rem;padding:.15rem .7rem;border-radius:999px;background:var(--surface);color:var(--muted)}
+.feature{background:var(--surface);border-radius:14px;padding:1.75rem;border:0}
+.feature + .item{margin-top:2.25rem}
+ul.points{padding-left:1.1rem;margin:0 0 .5rem;max-width:42rem}
+ul.points li{margin-bottom:.55rem;padding-left:.2rem}
+ul.points li::marker{color:var(--sage)}
+
+dl{margin:0;display:grid;grid-template-columns:11rem 1fr;gap:.9rem 1.5rem}
+dt{color:var(--muted);font-size:.92rem}
+dd{margin:0}
+.row{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.row:first-child{padding-top:0}
+.row span:last-child{color:var(--muted);font-size:.9rem;white-space:nowrap}
+.big{font-family:var(--serif);font-size:1.9rem;font-weight:300;line-height:1.2;margin:0 0 .4rem}
+.contact a.big{text-decoration:none;border-bottom:1px solid var(--sage)}
+footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;padding:3rem 0;gap:2.5rem}
+  section{grid-template-columns:1fr;gap:1.25rem;padding:2.5rem 0}
+  dl{grid-template-columns:1fr;gap:.2rem}
+  dd{margin-bottom:.9rem}
+  nav ul{gap:1rem}
+  .row{flex-direction:column;gap:0}
+  .big{font-size:1.45rem;overflow-wrap:anywhere}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .cursor{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav aria-label="Main">
+  <a class="mark" href="#top">Rishi Gehani</a>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <div>
+    <h1>Rishi<br>Gehani</h1>
+    <p class="lead">Computer applications graduate with a minor in cyber security, looking for an entry-level role in cyber and cloud security. I build full-stack apps, work comfortably in Linux, and care about how systems fail and how to keep them up.</p>
+    <div class="btns">
+      <a class="btn" href="#work">See my projects</a>
+      <a class="btn quiet" href="#contact">Get in touch</a>
+    </div>
+  </div>
+  <div class="term" aria-label="A short summary in terminal style">
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div><span class="p">$</span> <b>whoami</b></div>
+    <div>rishi, based in Mumbai</div>
+    <div><span class="p">$</span> <b>cat focus.txt</b></div>
+    <div>cyber security, cloud, devops</div>
+    <div><span class="p">$</span> <b>status</b></div>
+    <div><span class="ok">open to entry-level roles</span></div>
+    <div><span class="p">$</span> <span class="cursor" aria-hidden="true"></span></div>
+  </div>
+</header>
+
+<section id="work">
+  <h2>Projects</h2>
+  <div>
+    <article class="item feature">
+      <h3>CamPlace</h3>
+      <p class="meta">Major project · Oct 2025 – Apr 2026</p>
+      <p>A real-time campus placement platform that automates recruitment between students and the university placement cell.</p>
+      <ul class="points">
+        <li>An AI career coach built on Google Gemini, with a fallback across multiple models so it keeps answering if one fails.</li>
+        <li>A single-placement lock that updates application status across the whole system, enforcing placement policy without manual cross-checking.</li>
+        <li>An admin dashboard with live funnel analysis, scheduled interview reminders (Node-cron) and a cascading purge for secure student data deletion.</li>
+        <li>Role-based authentication with bcrypt and 1-hour JWT session rotation. Live tracking through WebSockets, styled with Tailwind CSS and Framer Motion.</li>
+      </ul>
+      <ul class="tags"><li>MERN</li><li>Socket.io</li><li>Gemini</li><li>JWT</li><li>Tailwind</li></ul>
+    </article>
+
+    <article class="item">
+      <h3>DevOps and systems architecture</h3>
+      <p class="meta">Academic project · Feb – Mar 2026</p>
+      <p>A study of how Swiggy moved from a monolith to microservices to handle 15,000+ orders per minute. Covers event-driven design with Kafka and Flink, and CI/CD with Jenkins, Docker and Kubernetes. I also ran a 20-person survey on how reliability affects user retention.</p>
+      <ul class="tags"><li>Kafka</li><li>Jenkins</li><li>Docker</li><li>Kubernetes</li></ul>
+    </article>
+
+    <article class="item">
+      <h3>Placement prediction model</h3>
+      <p class="meta">Machine learning · Dec 2025 – Mar 2026</p>
+      <p>A classifier that estimates a student’s placement likelihood from CGPA, internships, project count and soft-skill scores. I cleaned a 1,000-record Kaggle dataset, compared Logistic Regression with Random Forest (the better of the two, at 53% accuracy), and found CGPA, projects and internships to be the strongest predictors.</p>
+      <ul class="tags"><li>Python</li><li>Pandas</li><li>scikit-learn</li></ul>
+    </article>
+
+    <article class="item">
+      <h3>Swaad</h3>
+      <p class="meta">Full stack · Aug – Oct 2025</p>
+      <p>A catering web app where users browse menus, customise dishes and book event catering. Includes a live cart, protected checkout, JWT login and an order history dashboard.</p>
+      <ul class="tags"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li></ul>
+    </article>
+
+    <article class="item">
+      <h3>ReliableHands</h3>
+      <p class="meta">Full stack · Nov 2024 – Jan 2025</p>
+      <p>A booking platform for finding and scheduling home-service professionals, with dynamic booking forms and a SQL Server database for users, requests and transactions.</p>
+      <ul class="tags"><li>ASP.NET</li><li>C#</li><li>SQL Server</li></ul>
+    </article>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <dl>
+    <dt>Security</dt>
+    <dd>Network security, CIA triad, cryptography basics, firewalls and IDS/IPS, OWASP Top 10, Nmap, Wireshark, Cain &amp; Abel, Xiao Steganography</dd>
+    <dt>Cloud and DevOps</dt>
+    <dd>Docker, Kubernetes, Jenkins, GitHub Actions, CI/CD pipelines, Linux and Ubuntu</dd>
+    <dt>Languages</dt>
+    <dd>Python, Node.js</dd>
+    <dt>Web</dt>
+    <dd>HTML, CSS, React.js, Express.js, RESTful APIs, some ASP.NET</dd>
+    <dt>Databases</dt>
+    <dd>MongoDB, MySQL</dd>
+    <dt>Working style</dt>
+    <dd>Debugging, algorithm design, teamwork, leadership, clear communication</dd>
+  </dl>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div>
+    <h3>Somaiya Vidyavihar University</h3>
+    <p class="meta">Bachelor’s in Computer Applications, minor in Cyber Security · Jun 2023 – May 2026</p>
+    <p class="big">GPA 9.86 / 10</p>
+    <p>Coursework in DevOps, Linux administration, cyber security, computer networking, cloud computing, AI/ML, databases, and software engineering.</p>
+
+    <h3 style="margin-top:2.5rem;margin-bottom:1rem">Certifications</h3>
+    <div class="row"><span>Developing Front-End Apps with React · IBM</span><span>Jun 2025</span></div>
+    <div class="row"><span>Designing User Interfaces and Experiences · Google</span><span>Feb 2025</span></div>
+    <div class="row"><span>Data Structures and Performance · UC San Diego</span><span>Feb 2025</span></div>
+    <div class="row"><span>Git and GitHub · Google</span><span>Jun 2024</span></div>
+    <div class="row"><span>Foundations of Cybersecurity · Google</span><span>Jun 2024</span></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <div>
+    <p>I’m looking for an entry-level role in cyber or cloud security. If you have one, I’d like to hear about it.</p>
+    <p><a class="big" href="mailto:rishigehani18@gmail.com">rishigehani18@gmail.com</a></p>
+    <p style="color:var(--muted)"><a href="tel:+919960388441">+91 99603 88441</a> · Mumbai, India</p>
+  </div>
+</section>
+
+<footer>© 2026 Rishi Gehani</footer>
+</div>
+</body>
+</html>
